@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux | 独木博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In this post, the steps to deploy a Web App built with Laravel+Node.JS+Redis on Android Termux environment are described.">
+<meta name="keywords" content="laravel,termux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux">
+<meta property="og:url" content="http://fox000002.github.io/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/index.html">
+<meta property="og:site_name" content="独木博客">
+<meta property="og:description" content="In this post, the steps to deploy a Web App built with Laravel+Node.JS+Redis on Android Termux environment are described.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://fox000002.github.io/images/info.jpg">
+<meta property="og:image" content="http://fox000002.github.io/images/puttygen.png">
+<meta property="og:image" content="http://fox000002.github.io/images/putty_1.png">
+<meta property="og:image" content="http://fox000002.github.io/images/putty_2.png">
+<meta property="og:image" content="http://fox000002.github.io/images/putty_3.png">
+<meta property="og:image" content="http://fox000002.github.io/images/putty_4.png">
+<meta property="og:image" content="http://fox000002.github.io/images/putty_5.png">
+<meta property="og:image" content="http://fox000002.github.io/images/app.png">
+<meta property="og:updated_time" content="2019-03-24T07:01:57.108Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux">
+<meta name="twitter:description" content="In this post, the steps to deploy a Web App built with Laravel+Node.JS+Redis on Android Termux environment are described.">
+<meta name="twitter:image" content="http://fox000002.github.io/images/info.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="独木博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">独木</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">诗和远方</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/fox000002" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/electron/" style="font-size: 10px;">electron</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/logging/" style="font-size: 10px;">logging</a> <a href="/tags/programming/" style="font-size: 10px;">programming</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/termux/" style="font-size: 10px;">termux</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/huys03/">博客园</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">于复杂中寻觅简单之道</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">独木</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.png" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">独木</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">诗和远方</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/fox000002" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/" class="article-date">
+      <time datetime="2019-03-19T11:44:19.000Z" itemprop="datePublished">2019-03-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/laravel/">laravel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/termux/">termux</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>In this post, the steps to deploy a Web App built with Laravel+Node.JS+Redis on Android Termux environment are described.</p>
+<a id="more"></a>
+<p>Table of Contents</p>
+<ul>
+<li><a href="#the-web-app-to-deploy">The Web App to deploy</a></li>
+<li><a href="#install-termuxapp">Install termux.app</a></li>
+<li><a href="#install-packages-in-termux">Install packages in termux</a><ul>
+<li><a href="#system-info">System Info</a></li>
+<li><a href="#utility-packages">Utility packages</a></li>
+<li><a href="#ssh">SSH</a><ul>
+<li><a href="#start-ssh-server">Start SSH server</a></li>
+<li><a href="#use-puttygenexe-to-generate-key-files">Use puttygen.exe to generate key files</a></li>
+<li><a href="#add-public-key-to-sshautherizedkeys">Add public key to <code>~/.ssh/autherized_keys</code></a></li>
+<li><a href="#use-puttyexe-to-login">Use putty.exe to login</a></li>
+</ul>
+</li>
+<li><a href="#proot">proot</a></li>
+<li><a href="#git-optional">Git (optional)</a></li>
+<li><a href="#python-optional">Python (optional)</a></li>
+<li><a href="#clang-optional">clang (optional)</a></li>
+<li><a href="#redis">redis</a></li>
+<li><a href="#nodejs">node.js</a></li>
+<li><a href="#php">PHP</a></li>
+<li><a href="#nginx">Nginx</a></li>
+<li><a href="#php-fpm">php-fpm</a></li>
+</ul>
+</li>
+<li><a href="#configuration">Configuration</a><ul>
+<li><a href="#update-etcnginxnginxconf">Update <code>/etc/nginx/nginx.conf</code></a></li>
+<li><a href="#update-etcphp-fpmdwwwconf">Update <code>/etc/php-fpm.d/www.conf</code></a></li>
+<li><a href="#node-modules">node modules</a></li>
+<li><a href="#laravel">Laravel</a></li>
+<li><a href="#startup-script">Startup script</a></li>
+</ul>
+</li>
+<li><a href="#visit-the-app">Visit the app</a></li>
+<li><a href="#references">references</a></li>
+</ul>
+<h2 id="The-Web-App-to-deploy"><a href="#The-Web-App-to-deploy" class="headerlink" title="The Web App to deploy"></a>The Web App to deploy</h2><p>The web app is built with PHP/Laravel, node.js and redis.</p>
+<p>The code will be deployed in <code>$HOME/firstchart</code>.</p>
+<p><a href="https://drive.google.com/file/d/1IUFCGSBIXxbmRrx_neX9PDLcM4C_Ctak/view?usp=sharing" target="_blank" rel="noopener">https://drive.google.com/file/d/1IUFCGSBIXxbmRrx_neX9PDLcM4C_Ctak/view?usp=sharing</a></p>
+<p><a href="https://github.com/maximus1127/neweyechart" target="_blank" rel="noopener">https://github.com/maximus1127/neweyechart</a></p>
+<h2 id="Install-termux-app"><a href="#Install-termux-app" class="headerlink" title="Install termux.app"></a>Install termux.app</h2><p>Get and install the APK from Google Play or F-Droid.</p>
+<p>You can get the links from the website.</p>
+<p><a href="https://termux.com/" target="_blank" rel="noopener">https://termux.com/</a></p>
+<h2 id="Install-packages-in-termux"><a href="#Install-packages-in-termux" class="headerlink" title="Install packages in termux"></a>Install packages in termux</h2><p>After starting termux app, you can run commands in the terminal.</p>
+<h3 id="System-Info"><a href="#System-Info" class="headerlink" title="System Info"></a>System Info</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">whoami <span class="comment"># the user name in use</span></span><br><span class="line"></span><br><span class="line">ifconfig <span class="comment"># find the IP address</span></span><br></pre></td></tr></table></figure>
+<p><img src="/images/info.jpg" alt="info"></p>
+<h3 id="Utility-packages"><a href="#Utility-packages" class="headerlink" title="Utility packages"></a>Utility packages</h3><ul>
+<li><p>Package <code>wget</code> and <code>curl</code> are used to download files from HTTP servers.</p>
+</li>
+<li><p>Package <code>vim</code> is a editor.</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install wget curl vim</span><br></pre></td></tr></table></figure>
+<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install sshd</span><br></pre></td></tr></table></figure>
+<h4 id="Start-SSH-server"><a href="#Start-SSH-server" class="headerlink" title="Start SSH server"></a>Start SSH server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sshd</span><br></pre></td></tr></table></figure>
+<p>The SSH server in termux can only be logged in with a key files. Go to <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</a> and get putty.exe &amp; puttygen.exe.</p>
+<ul>
+<li>putty.exe: a SSH client</li>
+<li>puttygen.exe: a RSA and DSA key generation utility</li>
+</ul>
+<h4 id="Use-puttygen-exe-to-generate-key-files"><a href="#Use-puttygen-exe-to-generate-key-files" class="headerlink" title="Use puttygen.exe to generate key files"></a>Use puttygen.exe to generate key files</h4><p><img src="/images/puttygen.png" alt="puttygen.png"></p>
+<h4 id="Add-public-key-to-ssh-autherized-keys"><a href="#Add-public-key-to-ssh-autherized-keys" class="headerlink" title="Add public key to ~/.ssh/autherized_keys"></a>Add public key to <code>~/.ssh/autherized_keys</code></h4><p>To move termux.pub to Android, you can host the file on a HTTP or FTP server in local network. Then download it with wget.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://192.168.1.106:8000/termux.pub <span class="comment"># Use your own address</span></span><br></pre></td></tr></table></figure>
+<p>Just append the content into <code>~/.ssh/autherized_keys</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat termux.pub &gt;&gt; ~/.ssh/autherized_keys</span><br></pre></td></tr></table></figure>
+<h4 id="Use-putty-exe-to-login"><a href="#Use-putty-exe-to-login" class="headerlink" title="Use putty.exe to login"></a>Use putty.exe to login</h4><p><img src="/images/putty_1.png" alt="putty_1.png"></p>
+<p><img src="/images/putty_2.png" alt="putty_2.png"></p>
+<p><img src="/images/putty_3.png" alt="putty_3.png"></p>
+<p><img src="/images/putty_4.png" alt="putty_4.png"></p>
+<p><img src="/images/putty_5.png" alt="putty_5.png"></p>
+<h3 id="proot"><a href="#proot" class="headerlink" title="proot"></a>proot</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install proot <span class="comment"># Nginx needs chroot to work</span></span><br></pre></td></tr></table></figure>
+<p>After installing proot, you can use command <code>termux-chroot</code> to enter simulated root environment.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">termux-chroot</span><br></pre></td></tr></table></figure>
+<h3 id="Git-optional"><a href="#Git-optional" class="headerlink" title="Git (optional)"></a>Git (optional)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install git <span class="comment"># To get code from Github</span></span><br></pre></td></tr></table></figure>
+<h3 id="Python-optional"><a href="#Python-optional" class="headerlink" title="Python (optional)"></a>Python (optional)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install python2 <span class="comment"># To build code when installing node modules</span></span><br></pre></td></tr></table></figure>
+<h3 id="clang-optional"><a href="#clang-optional" class="headerlink" title="clang (optional)"></a>clang (optional)</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install clang <span class="comment"># g++ to build code</span></span><br></pre></td></tr></table></figure>
+<h3 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install redis</span><br></pre></td></tr></table></figure>
+<h3 id="node-js"><a href="#node-js" class="headerlink" title="node.js"></a>node.js</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install node</span><br></pre></td></tr></table></figure>
+<h3 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install php</span><br></pre></td></tr></table></figure>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install nginx</span><br></pre></td></tr></table></figure>
+<h3 id="php-fpm"><a href="#php-fpm" class="headerlink" title="php-fpm"></a>php-fpm</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install php-fpm</span><br></pre></td></tr></table></figure>
+<h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><h3 id="Update-etc-nginx-nginx-conf"><a href="#Update-etc-nginx-nginx-conf" class="headerlink" title="Update /etc/nginx/nginx.conf"></a>Update <code>/etc/nginx/nginx.conf</code></h3><p>You can get the file from <a href="https://github.com/fox000002/blog/blob/master/termux/nginx.conf" target="_blank" rel="noopener">nginx.conf</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#user  nobody;</span></span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span></span><br><span class="line">    <span class="comment">#                  '$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line">    <span class="comment">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log  logs/access.log  main;</span></span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen       8080;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    root /data/data/com.termux/files/home/firstchart/public;</span><br><span class="line">    index index.php index.html index.htm;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.php?<span class="variable">$query_string</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   /data/data/com.termux/files/usr/share/nginx/html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">        <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">    location ~ \.php$ &#123;</span><br><span class="line">            <span class="comment">#root           html;</span></span><br><span class="line">            try_files <span class="variable">$uri</span> /index.php =404;</span><br><span class="line">            fastcgi_split_path_info ^(.+\.php)(/.+)$;</span><br><span class="line">            fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">            fastcgi_index  index.php;</span><br><span class="line">            fastcgi_param  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</span><br><span class="line">            include        fastcgi_params;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># deny access to .htaccess files, if Apache's document root</span></span><br><span class="line">        <span class="comment"># concurs with nginx's one</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">        <span class="comment">#    deny  all;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># another virtual host using mix of IP-, name-, and port-based configuration</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       8000;</span></span><br><span class="line">    <span class="comment">#    listen       somename:8080;</span></span><br><span class="line">    <span class="comment">#    server_name  somename  alias  another.alias;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment"># HTTPS server</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#server &#123;</span></span><br><span class="line">    <span class="comment">#    listen       443 ssl;</span></span><br><span class="line">    <span class="comment">#    server_name  localhost;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_certificate      cert.pem;</span></span><br><span class="line">    <span class="comment">#    ssl_certificate_key  cert.key;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_session_cache    shared:SSL:1m;</span></span><br><span class="line">    <span class="comment">#    ssl_session_timeout  5m;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    ssl_ciphers  HIGH:!aNULL:!MD5;</span></span><br><span class="line">    <span class="comment">#    ssl_prefer_server_ciphers  on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#    location / &#123;</span></span><br><span class="line">    <span class="comment">#        root   html;</span></span><br><span class="line">    <span class="comment">#        index  index.html index.htm;</span></span><br><span class="line">    <span class="comment">#    &#125;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Update-etc-php-fpm-d-www-conf"><a href="#Update-etc-php-fpm-d-www-conf" class="headerlink" title="Update /etc/php-fpm.d/www.conf"></a>Update <code>/etc/php-fpm.d/www.conf</code></h3><p>Edit the <code>listen</code> address.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen = 127.0.0.1</span><br></pre></td></tr></table></figure>
+<p>You can also get the file from <a href="https://github.com/fox000002/blog/blob/master/termux/www.conf" target="_blank" rel="noopener">www.conf</a>.</p>
+<h3 id="node-modules"><a href="#node-modules" class="headerlink" title="node modules"></a>node modules</h3><p>After upload code in <code>$HOME/firstchart</code>, you need to install the node modules.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="variable">$HOME</span>/firstchart</span><br><span class="line"></span><br><span class="line">npm install --production</span><br><span class="line"></span><br><span class="line"><span class="comment"># or</span></span><br><span class="line"></span><br><span class="line">NODE_ENV=production npm install</span><br></pre></td></tr></table></figure>
+<h3 id="Laravel"><a href="#Laravel" class="headerlink" title="Laravel"></a>Laravel</h3><p>If the code does contains vendor files, install composer and packages.</p>
+<ul>
+<li>composer</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">php -r <span class="string">"copy('https://getcomposer.org/installer', 'composer-setup.php');"</span></span><br><span class="line">php -r <span class="string">"if (hash_file('sha384', 'composer-setup.php') === '93b54496392c062774670ac18b134c3b3a95e5a5e5c8f1a9f115f203b75bf9a129d5daa8ba6a13e2cc8a1da0806388a8') &#123; echo 'Installer verified'; &#125; else &#123; echo 'Installer corrupt'; unlink('composer-setup.php'); &#125; echo PHP_EOL;"</span></span><br><span class="line">php composer-setup.php</span><br><span class="line">php -r <span class="string">"unlink('composer-setup.php');"</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>packages</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php composer.phar install</span><br></pre></td></tr></table></figure>
+<h3 id="Startup-script"><a href="#Startup-script" class="headerlink" title="Startup script"></a>Startup script</h3><p>Edit <code>~/.bashrc</code>. You can also get it from <a href="https://github.com/fox000002/blog/blob/master/termux/.bashrc" target="_blank" rel="noopener">.bashrc</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># bootstrap</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">"XXX<span class="variable">$HOME</span>"</span> = <span class="string">"XXX/home"</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">  uname -a</span><br><span class="line"></span><br><span class="line">  <span class="comment"># redis</span></span><br><span class="line">  pgrep redis-server || (redis-server &amp;)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># node</span></span><br><span class="line">  <span class="built_in">cd</span> /home/firstchart</span><br><span class="line">  pgrep node || (node server.js &amp;)</span><br><span class="line">  <span class="built_in">cd</span> /home</span><br><span class="line"></span><br><span class="line">  <span class="comment"># php-fpm</span></span><br><span class="line">  pgrep php-fpm || php-fpm</span><br><span class="line"></span><br><span class="line">  <span class="comment"># NGINX</span></span><br><span class="line">  pgrep nginx || nginx</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  <span class="comment"># chroot if not in root environment</span></span><br><span class="line">  termux-chroot</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>After updating <code>.bashrc</code>, make it in effect.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+<h2 id="Visit-the-app"><a href="#Visit-the-app" class="headerlink" title="Visit the app"></a>Visit the app</h2><p><img src="/images/app.png" alt="app"></p>
+<h2 id="references"><a href="#references" class="headerlink" title="references"></a>references</h2><p>[1] <a href="https://getcomposer.org/download/" target="_blank" rel="noopener">https://getcomposer.org/download/</a></p>
+<p>[2] <a href="https://www.sitepoint.com/android-elephpant-laravel-android-phone/" target="_blank" rel="noopener">https://www.sitepoint.com/android-elephpant-laravel-android-phone/</a></p>
+
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/">Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 独木 的个人博客">独木</a></p>
+        <p><span>发布时间:</span>2019年03月19日 - 11时44分</p>
+        <p><span>最后更新:</span>2019年03月24日 - 07时01分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/" title="Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux">http://fox000002.github.io/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://fox000002.github.io/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/　　作者: 独木" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/18/Install-Python-Dash-App-on-an-Ubuntu-Server/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Install Python Dash App on an Ubuntu Server</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Web-App-to-deploy"><span class="toc-number">1.</span> <span class="toc-text">The Web App to deploy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-termux-app"><span class="toc-number">2.</span> <span class="toc-text">Install termux.app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-packages-in-termux"><span class="toc-number">3.</span> <span class="toc-text">Install packages in termux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#System-Info"><span class="toc-number">3.1.</span> <span class="toc-text">System Info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Utility-packages"><span class="toc-number">3.2.</span> <span class="toc-text">Utility packages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-number">3.3.</span> <span class="toc-text">SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Start-SSH-server"><span class="toc-number">3.3.1.</span> <span class="toc-text">Start SSH server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-puttygen-exe-to-generate-key-files"><span class="toc-number">3.3.2.</span> <span class="toc-text">Use puttygen.exe to generate key files</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Add-public-key-to-ssh-autherized-keys"><span class="toc-number">3.3.3.</span> <span class="toc-text">Add public key to ~/.ssh/autherized_keys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-putty-exe-to-login"><span class="toc-number">3.3.4.</span> <span class="toc-text">Use putty.exe to login</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proot"><span class="toc-number">3.4.</span> <span class="toc-text">proot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-optional"><span class="toc-number">3.5.</span> <span class="toc-text">Git (optional)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-optional"><span class="toc-number">3.6.</span> <span class="toc-text">Python (optional)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clang-optional"><span class="toc-number">3.7.</span> <span class="toc-text">clang (optional)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis"><span class="toc-number">3.8.</span> <span class="toc-text">redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-js"><span class="toc-number">3.9.</span> <span class="toc-text">node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP"><span class="toc-number">3.10.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-number">3.11.</span> <span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-fpm"><span class="toc-number">3.12.</span> <span class="toc-text">php-fpm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration"><span class="toc-number">4.</span> <span class="toc-text">Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-etc-nginx-nginx-conf"><span class="toc-number">4.1.</span> <span class="toc-text">Update /etc/nginx/nginx.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-etc-php-fpm-d-www-conf"><span class="toc-number">4.2.</span> <span class="toc-text">Update /etc/php-fpm.d/www.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-modules"><span class="toc-number">4.3.</span> <span class="toc-text">node modules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Laravel"><span class="toc-number">4.4.</span> <span class="toc-text">Laravel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Startup-script"><span class="toc-number">4.5.</span> <span class="toc-text">Startup script</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visit-the-app"><span class="toc-number">5.</span> <span class="toc-text">Visit the app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">6.</span> <span class="toc-text">references</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2019/03/18/Install-Python-Dash-App-on-an-Ubuntu-Server/" title="下一篇: Install Python Dash App on an Ubuntu Server">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/">Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/Install-Python-Dash-App-on-an-Ubuntu-Server/">Install Python Dash App on an Ubuntu Server</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/06/Electron-Quick-Start/">Electron Quick Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/About-Lambda-Architecture/">About Lambda Architecture</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/console-logging-in-javascript/">Console Logging in JavaScript</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2019 独木
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none">
+                        <span id="site-visit">Site Visit: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style="display:none">
+                        <span id="page-visit">Page Visit: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
