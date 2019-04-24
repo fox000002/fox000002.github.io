@@ -3,21 +3,21 @@
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Console Logging in JavaScript | 独木博客</title>
+  <title>Create a Dockerfile with Python 3.7, PyGit2, and MongoDB | 独木博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="msvalidate.01" content="D9F6B72E9B02A9B5FFE2CD9C3E294265">
-  <meta name="description" content="Today, I watched the 7 lesson of “Advanced Logging with the JavaScript Console“. My debugging skill with JavaScript console was enhanced a lot.">
-<meta name="keywords" content="javascript,logging">
+  <meta name="description" content="Create a Dockerfile with Python 3.7, PyGit2, and MongoDB In this post, a new Dockerfile is created to build a Docker Image with Python 3.7, PyGit2, and MongoDB. The base image is amazonlinux.">
+<meta name="keywords" content="JavaScript, Programming, Golang, Rust，Life">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Console Logging in JavaScript">
-<meta property="og:url" content="http://fox000002.github.io/2016/05/14/console-logging-in-javascript/index.html">
+<meta property="og:title" content="Create a Dockerfile with Python 3.7, PyGit2, and MongoDB">
+<meta property="og:url" content="http://fox000002.github.io/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/index.html">
 <meta property="og:site_name" content="独木博客">
-<meta property="og:description" content="Today, I watched the 7 lesson of “Advanced Logging with the JavaScript Console“. My debugging skill with JavaScript console was enhanced a lot.">
+<meta property="og:description" content="Create a Dockerfile with Python 3.7, PyGit2, and MongoDB In this post, a new Dockerfile is created to build a Docker Image with Python 3.7, PyGit2, and MongoDB. The base image is amazonlinux.">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2019-04-24T00:04:51.044Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Console Logging in JavaScript">
-<meta name="twitter:description" content="Today, I watched the 7 lesson of “Advanced Logging with the JavaScript Console“. My debugging skill with JavaScript console was enhanced a lot.">
+<meta name="twitter:title" content="Create a Dockerfile with Python 3.7, PyGit2, and MongoDB">
+<meta name="twitter:description" content="Create a Dockerfile with Python 3.7, PyGit2, and MongoDB In this post, a new Dockerfile is created to build a Docker Image with Python 3.7, PyGit2, and MongoDB. The base image is amazonlinux.">
   
     <link rel="alternative" href="/atom.xml" title="独木博客" type="application/atom+xml">
   
@@ -205,11 +205,11 @@
         </header>                
     </div>
 </nav>
-      <div class="body-wrap"><article id="post-console-logging-in-javascript" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/05/14/console-logging-in-javascript/" class="article-date">
-      <time datetime="2016-05-14T22:53:11.000Z" itemprop="datePublished">2016-05-14</time>
+      <a href="/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/" class="article-date">
+      <time datetime="2019-04-24T07:45:19.000Z" itemprop="datePublished">2019-04-24</time>
 </a>
     </div>
   
@@ -222,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Console Logging in JavaScript
+      Create a Dockerfile with Python 3.7, PyGit2, and MongoDB
     </h1>
   
 
@@ -232,10 +232,6 @@
         
 
         
-    <div class="article-tag tagcloud">
-        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/logging/">logging</a></li></ul>
-    </div>
-
         <div class="clearfix"></div>
       </div>
       
@@ -243,20 +239,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <p>Today, I watched the 7 lesson of “<a href="https://egghead.io/series/js-console-for-power-users" target="_blank" rel="noopener">Advanced Logging with the JavaScript Console</a>“. My debugging skill with JavaScript console was enhanced a lot.</p>
+        <p>Create a Dockerfile with Python 3.7, PyGit2, and MongoDB</p>
+<p>In this post, a new Dockerfile is created to build a Docker Image with Python 3.7, PyGit2, and MongoDB. The base image is <code>amazonlinux</code>.</p>
 <a id="more"></a>
-<h2 id="Log-levels"><a href="#Log-levels" class="headerlink" title="Log levels"></a>Log levels</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log()</span><br><span class="line"><span class="built_in">console</span>.warn()</span><br><span class="line"><span class="built_in">console</span>.error()</span><br><span class="line"><span class="built_in">console</span>.info()</span><br><span class="line"><span class="built_in">console</span>.debug()</span><br></pre></td></tr></table></figure>
-<h2 id="Log-arguments"><a href="#Log-arguments" class="headerlink" title="Log arguments"></a>Log arguments</h2><p>We can use the similar formatting in printf of C.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'Your age is %d'</span>, <span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Grouping-and-nesting"><a href="#Grouping-and-nesting" class="headerlink" title="Grouping and nesting"></a>Grouping and nesting</h2><p>We group outputs by name.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.group(<span class="string">"GroupName"</span>);</span><br><span class="line"><span class="built_in">console</span>.groupEnd(<span class="string">"GroupName"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Assert"><a href="#Assert" class="headerlink" title="Assert"></a>Assert</h2><p>We can make some assertions with function assert. But it does not mean the error is handled.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.assert(info)</span><br></pre></td></tr></table></figure>
-<h2 id="Count"><a href="#Count" class="headerlink" title="Count"></a>Count</h2><p>We can count outputs with function count.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.count(<span class="string">"name"</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="Timing"><a href="#Timing" class="headerlink" title="Timing"></a>Timing</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.time(<span class="string">"name"</span>);</span><br><span class="line"><span class="built_in">console</span>.timeEnd(<span class="string">"name"</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="Table"><a href="#Table" class="headerlink" title="Table"></a>Table</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.table(obj)</span><br></pre></td></tr></table></figure>
-
+<h2 id="Python-3-7"><a href="#Python-3-7" class="headerlink" title="Python 3.7"></a>Python 3.7</h2><p>To install <code>Python 3.7</code>, it’s simple, just get the default packages.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install python3 python3-devel</span><br></pre></td></tr></table></figure>
+<h2 id="PyGit2"><a href="#PyGit2" class="headerlink" title="PyGit2"></a>PyGit2</h2><p>For PyGit2, there are not prebuilt packages for its dependency libgit2. It has to be built from source.</p>
+<p>The <code>CI</code> scripts of libgit2 are good resource for building, but they are supposed on <code>debian</code> or <code>ubuntu</code> using <code>apt</code>. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/libgit2/libgit2/blob/master/ci/setup-linux.sh</span><br></pre></td></tr></table></figure>
+<p>The converted commands are as following:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">yum -y update</span><br><span class="line">yum -y install tar gzip make automake gcc gcc-c++ kernel-devel cmake openssl-devel libssh2-devel libcurl-devel git wget</span><br><span class="line"><span class="built_in">cd</span> /root &amp;&amp; \</span><br><span class="line">         git <span class="built_in">clone</span> --depth 10 --single-branch --branch mbedtls-2.6.1 https://github.com/ARMmbed/mbedtls.git mbedtls &amp;&amp; \</span><br><span class="line">         <span class="built_in">cd</span> mbedtls &amp;&amp; \</span><br><span class="line">         CFLAGS=-fPIC cmake -DENABLE_PROGRAMS=OFF -DENABLE_TESTING=OFF -DUSE_SHARED_MBEDTLS_LIBRARY=OFF -DUSE_STATIC_MBEDTLS_LIBRARY=ON . &amp;&amp; \</span><br><span class="line">        cmake --build . &amp;&amp; \</span><br><span class="line">        make install</span><br><span class="line"> </span><br><span class="line"> <span class="built_in">cd</span> /root &amp;&amp; \</span><br><span class="line">        wget https://github.com/libgit2/libgit2/archive/v0.27.8.tar.gz &amp;&amp; \</span><br><span class="line">        tar xvf v0.27.8.tar.gz &amp;&amp; \</span><br><span class="line">        <span class="built_in">cd</span> libgit2-0.27.8 &amp;&amp; \</span><br><span class="line">        cmake . &amp;&amp; \</span><br><span class="line">        make &amp;&amp; \</span><br><span class="line">        make install</span><br></pre></td></tr></table></figure>
+<p>After that, install PyGit2 with <code>pip</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pip3 install cffi</span><br><span class="line">pip3 install pygit2</span><br><span class="line"><span class="built_in">echo</span> /usr/<span class="built_in">local</span>/lib &gt; /etc/ld.so.conf.d/libgit2.conf</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
+<h2 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h2><p>Download the latest version from MongoDB official website and extract it. That’s all for this.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /root &amp;&amp; \</span><br><span class="line">     wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon2-4.0.6.tgz &amp;&amp; \</span><br><span class="line">     tar xvf mongodb-linux-x86_64-amazon2-4.0.6.tgz</span><br></pre></td></tr></table></figure>
+<h2 id="Complete-Dockerfile"><a href="#Complete-Dockerfile" class="headerlink" title="Complete Dockerfile"></a>Complete Dockerfile</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">FROM amazonlinux:latest</span><br><span class="line">RUN yum -y update</span><br><span class="line">RUN yum -y install tar gzip make automake gcc gcc-c++ kernel-devel cmake openssl-devel libssh2-devel libcurl-devel git wget</span><br><span class="line">RUN cd /root &amp;&amp; \</span><br><span class="line">      git clone --depth 10 --single-branch --branch mbedtls-2.6.1 https://github.com/ARMmbed/mbedtls.git mbedtls &amp;&amp; \</span><br><span class="line">      cd mbedtls &amp;&amp; \</span><br><span class="line">      CFLAGS=-fPIC cmake -DENABLE_PROGRAMS=OFF -DENABLE_TESTING=OFF -DUSE_SHARED_MBEDTLS_LIBRARY=OFF -DUSE_STATIC_MBEDTLS_LIBRARY=ON . &amp;&amp; \</span><br><span class="line">      cmake --build . &amp;&amp; \</span><br><span class="line">      make install</span><br><span class="line">RUN cd /root &amp;&amp; \</span><br><span class="line">      wget https://github.com/libgit2/libgit2/archive/v0.27.8.tar.gz &amp;&amp; \</span><br><span class="line">      tar xvf v0.27.8.tar.gz &amp;&amp; \</span><br><span class="line">      cd libgit2-0.27.8 &amp;&amp; \</span><br><span class="line">      cmake . &amp;&amp; \</span><br><span class="line">      make &amp;&amp; \</span><br><span class="line">      make install</span><br><span class="line"></span><br><span class="line">RUN yum -y install python3 python3-devel</span><br><span class="line">RUN pip3 install cffi</span><br><span class="line">RUN pip3 install pygit2</span><br><span class="line">RUN echo /usr/local/lib &gt; /etc/ld.so.conf.d/libgit2.conf</span><br><span class="line">RUN ldconfig</span><br><span class="line"></span><br><span class="line">RUN python3 -c &apos;import pygit2&apos;</span><br><span class="line"></span><br><span class="line">RUN cd /root &amp;&amp; \</span><br><span class="line">    wget https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-amazon2-4.0.6.tgz &amp;&amp; \</span><br><span class="line">    tar xvf mongodb-linux-x86_64-amazon2-4.0.6.tgz</span><br><span class="line"></span><br><span class="line">RUN mkdir /root/data</span><br><span class="line"></span><br><span class="line">EXPOSE 27017</span><br><span class="line">COPY entrypoint.sh /root/entrypoint.sh</span><br><span class="line">ENTRYPOINT [ &quot;/bin/bash&quot;, &quot;/root/entrypoint.sh&quot;]</span><br></pre></td></tr></table></figure>
+<h2 id="entrypoint-sh"><a href="#entrypoint-sh" class="headerlink" title="entrypoint.sh"></a>entrypoint.sh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">/root/mongodb-linux-x86_64-amazon2-4.0.6/bin/mongod --bind_ip_all --dbpath /root/data --fork --logpath /var/<span class="built_in">log</span>/mongo.log</span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span> <span class="variable">$1</span></span><br></pre></td></tr></table></figure>
       
       
     </div>
@@ -265,13 +263,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2016/05/14/console-logging-in-javascript/">Console Logging in JavaScript</a></p>
+        <p><span>本文标题:</span><a href="/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/">Create a Dockerfile with Python 3.7, PyGit2, and MongoDB</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 独木 的个人博客">独木</a></p>
-        <p><span>发布时间:</span>2016年05月14日 - 22时53分</p>
+        <p><span>发布时间:</span>2019年04月24日 - 07时45分</p>
         <p><span>最后更新:</span>2019年04月24日 - 00时04分</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2016/05/14/console-logging-in-javascript/" title="Console Logging in JavaScript">http://fox000002.github.io/2016/05/14/console-logging-in-javascript/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://fox000002.github.io/2016/05/14/console-logging-in-javascript/　　作者: 独木" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/" title="Create a Dockerfile with Python 3.7, PyGit2, and MongoDB">http://fox000002.github.io/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://fox000002.github.io/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/　　作者: 独木" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script src="/js/clipboard.min.js"></script>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -284,15 +282,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2017/03/19/About-Lambda-Architecture/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          About Lambda Architecture
-        
-      </div>
-    </a>
   
+    <a href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
   
 </nav>
 
@@ -301,7 +295,7 @@
 
     <div id="toc" class="toc-article">
     <strong class="toc-title">文章目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-levels"><span class="toc-number">1.</span> <span class="toc-text">Log levels</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Log-arguments"><span class="toc-number">2.</span> <span class="toc-text">Log arguments</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Grouping-and-nesting"><span class="toc-number">3.</span> <span class="toc-text">Grouping and nesting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Assert"><span class="toc-number">4.</span> <span class="toc-text">Assert</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Count"><span class="toc-number">5.</span> <span class="toc-text">Count</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Timing"><span class="toc-number">6.</span> <span class="toc-text">Timing</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Table"><span class="toc-number">7.</span> <span class="toc-text">Table</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-3-7"><span class="toc-number">1.</span> <span class="toc-text">Python 3.7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PyGit2"><span class="toc-number">2.</span> <span class="toc-text">PyGit2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mongodb"><span class="toc-number">3.</span> <span class="toc-text">mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Complete-Dockerfile"><span class="toc-number">4.</span> <span class="toc-text">Complete Dockerfile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#entrypoint-sh"><span class="toc-number">5.</span> <span class="toc-text">entrypoint.sh</span></a></li></ol>
 </div>
 <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
 
@@ -340,13 +334,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2017/03/19/About-Lambda-Architecture/" title="上一篇: About Lambda Architecture">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
         
-            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+            <a href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/" title="下一篇: Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux">
+                <i class="fa fa-angle-right"></i>
+            </a>
         
     </div>
     <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/">Create a Dockerfile with Python 3.7, PyGit2, and MongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/">Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/Install-Python-Dash-App-on-an-Ubuntu-Server/">Install Python Dash App on an Ubuntu Server</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/06/Electron-Quick-Start/">Electron Quick Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/About-Lambda-Architecture/">About Lambda Architecture</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/console-logging-in-javascript/">Console Logging in JavaScript</a></li></ul>
