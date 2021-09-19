@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
   
   <title>Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux | 独木博客</title>
@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://fox000002.github.io/images/putty_4.png">
 <meta property="og:image" content="http://fox000002.github.io/images/putty_5.png">
 <meta property="og:image" content="http://fox000002.github.io/images/app.png">
-<meta property="og:updated_time" content="2019-04-24T00:31:17.662Z">
+<meta property="og:updated_time" content="2021-09-19T07:06:32.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux">
 <meta name="twitter:description" content="In this post, the steps to deploy a Web App built with Laravel+Node.JS+Redis on Android Termux environment are described.">
@@ -224,7 +224,7 @@
   
   <div class="article-inner">
     
-      <input type="hidden" class="isFancy">
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
@@ -264,7 +264,7 @@
 <li><a href="#ssh">SSH</a><ul>
 <li><a href="#start-ssh-server">Start SSH server</a></li>
 <li><a href="#use-puttygenexe-to-generate-key-files">Use puttygen.exe to generate key files</a></li>
-<li><a href="#add-public-key-to-sshautherizedkeys">Add public key to <code>~/.ssh/autherized_keys</code></a></li>
+<li><a href="#add-public-key-to-sshautherized_keys">Add public key to <code>~/.ssh/autherized_keys</code></a></li>
 <li><a href="#use-puttyexe-to-login">Use putty.exe to login</a></li>
 </ul>
 </li>
@@ -307,7 +307,7 @@
 </li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install wget curl vim</span><br></pre></td></tr></table></figure>
-<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install sshd</span><br></pre></td></tr></table></figure>
+<h3 id="SSH"><a href="#SSH" class="headerlink" title="SSH"></a>SSH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pkg install openssh</span><br></pre></td></tr></table></figure>
 <h4 id="Start-SSH-server"><a href="#Start-SSH-server" class="headerlink" title="Start SSH server"></a>Start SSH server</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sshd</span><br></pre></td></tr></table></figure>
 <p>The SSH server in termux can only be logged in with a key files. Go to <a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener">https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</a> and get putty.exe &amp; puttygen.exe.</p>
 <ul>
@@ -370,7 +370,7 @@
         <p><span>本文标题:</span><a href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/">Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux</a></p>
         <p><span>文章作者:</span><a href="/" title="访问 独木 的个人博客">独木</a></p>
         <p><span>发布时间:</span>2019年03月19日 - 11时44分</p>
-        <p><span>最后更新:</span>2019年04月24日 - 00时31分</p>
+        <p><span>最后更新:</span>2021年09月19日 - 07时06分</p>
         <p>
             <span>原始链接:</span><a class="post-url" href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/" title="Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux">http://fox000002.github.io/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/</a>
             <span class="copy-path" data-clipboard-text="原文: http://fox000002.github.io/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/　　作者: 独木" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
@@ -378,7 +378,7 @@
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
-            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target="_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
         </p>
     </div>
 
@@ -410,7 +410,7 @@
     <strong class="toc-title">文章目录</strong>
     <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Web-App-to-deploy"><span class="toc-number">1.</span> <span class="toc-text">The Web App to deploy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-termux-app"><span class="toc-number">2.</span> <span class="toc-text">Install termux.app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-packages-in-termux"><span class="toc-number">3.</span> <span class="toc-text">Install packages in termux</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#System-Info"><span class="toc-number">3.1.</span> <span class="toc-text">System Info</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Utility-packages"><span class="toc-number">3.2.</span> <span class="toc-text">Utility packages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH"><span class="toc-number">3.3.</span> <span class="toc-text">SSH</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Start-SSH-server"><span class="toc-number">3.3.1.</span> <span class="toc-text">Start SSH server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-puttygen-exe-to-generate-key-files"><span class="toc-number">3.3.2.</span> <span class="toc-text">Use puttygen.exe to generate key files</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Add-public-key-to-ssh-autherized-keys"><span class="toc-number">3.3.3.</span> <span class="toc-text">Add public key to ~/.ssh/autherized_keys</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Use-putty-exe-to-login"><span class="toc-number">3.3.4.</span> <span class="toc-text">Use putty.exe to login</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proot"><span class="toc-number">3.4.</span> <span class="toc-text">proot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-optional"><span class="toc-number">3.5.</span> <span class="toc-text">Git (optional)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-optional"><span class="toc-number">3.6.</span> <span class="toc-text">Python (optional)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clang-optional"><span class="toc-number">3.7.</span> <span class="toc-text">clang (optional)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redis"><span class="toc-number">3.8.</span> <span class="toc-text">redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-js"><span class="toc-number">3.9.</span> <span class="toc-text">node.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PHP"><span class="toc-number">3.10.</span> <span class="toc-text">PHP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-number">3.11.</span> <span class="toc-text">Nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php-fpm"><span class="toc-number">3.12.</span> <span class="toc-text">php-fpm</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Configuration"><span class="toc-number">4.</span> <span class="toc-text">Configuration</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-etc-nginx-nginx-conf"><span class="toc-number">4.1.</span> <span class="toc-text">Update /etc/nginx/nginx.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update-etc-php-fpm-d-www-conf"><span class="toc-number">4.2.</span> <span class="toc-text">Update /etc/php-fpm.d/www.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-modules"><span class="toc-number">4.3.</span> <span class="toc-text">node modules</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Laravel"><span class="toc-number">4.4.</span> <span class="toc-text">Laravel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Startup-script"><span class="toc-number">4.5.</span> <span class="toc-text">Startup script</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Visit-the-app"><span class="toc-number">5.</span> <span class="toc-text">Visit the app</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#references"><span class="toc-number">6.</span> <span class="toc-text">references</span></a></li></ol>
 </div>
-<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
 
 <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
 <script>
@@ -488,7 +488,7 @@
     <div class="outer">
         <div id="footer-info">
             <div class="footer-left">
-                &copy; 2019 独木
+                &copy; 2021 独木
             </div>
             <div class="footer-right">
                 <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
@@ -497,8 +497,8 @@
         
             <div class="visit">
                 
-                    <span id="busuanzi_container_site_pv" style="display:none">
-                        <span id="site-visit">Site Visit: 
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >Site Visit: 
                             <span id="busuanzi_value_site_uv"></span>
                         </span>
                     </span>
@@ -507,7 +507,7 @@
                     <span>, </span>
                 
                 
-                    <span id="busuanzi_container_page_pv" style="display:none">
+                    <span id="busuanzi_container_page_pv" style='display:none'>
                         <span id="page-visit">Page Visit: 
                             <span id="busuanzi_value_page_pv"></span>
                         </span>
