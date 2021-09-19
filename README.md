@@ -1,5 +1,5 @@
 Blog
 =================
 
-https://tinyfox.rocks
+https://fox000002.github.io
 
