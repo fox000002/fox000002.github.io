@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  <title>How to run backtrader on MacOS | 独木博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="msvalidate.01" content="D9F6B72E9B02A9B5FFE2CD9C3E294265">
+  <meta name="description" content="The package backtrader is a Live Trading and backtesting platform written in Python.">
+<meta name="keywords" content="backtrader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to run backtrader on MacOS">
+<meta property="og:url" content="http://fox000002.github.io/2023/03/05/How-to-run-backtrader-on-MacOS/index.html">
+<meta property="og:site_name" content="独木博客">
+<meta property="og:description" content="The package backtrader is a Live Trading and backtesting platform written in Python.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://fox000002.github.io/images/sma_10_30_300750.png">
+<meta property="og:updated_time" content="2023-03-06T07:15:49.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to run backtrader on MacOS">
+<meta name="twitter:description" content="The package backtrader is a Live Trading and backtesting platform written in Python.">
+<meta name="twitter:image" content="http://fox000002.github.io/images/sma_10_30_300750.png">
+  
+    <link rel="alternative" href="/atom.xml" title="独木博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet">
+  <script>
+      var yiliaConfig = {
+          rootUrl: '/',
+          fancybox: true,
+          animate: false,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: false
+      }
+  </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            
+            <img src="/img/head.png" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+            
+        </a>
+
+        <hgroup>
+          <h1 class="header-author"><a href="/" title="Hi Mate">独木</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">诗和远方</p>
+        
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">博客首页</a></li>
+                        
+                            <li><a href="/works">作品展示</a></li>
+                        
+                            <li><a href="/about">留言打卡</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github" target="_blank" href="https://github.com/fox000002" title="github">github</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/backtrader/" style="font-size: 10px;">backtrader</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/electron/" style="font-size: 10px;">electron</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/laravel/" style="font-size: 10px;">laravel</a> <a href="/tags/logging/" style="font-size: 10px;">logging</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/termux/" style="font-size: 10px;">termux</a>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.cnblogs.com/huys03/">博客园</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">于复杂中寻觅简单之道</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="Me">独木</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img src="/img/head.png" class="js-avatar" style="width: 100%; height: 100%; opacity: 1;">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="Me">独木</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">诗和远方</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">博客首页</a></li>
+                
+                    <li><a href="/works">作品展示</a></li>
+                
+                    <li><a href="/about">留言打卡</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/fox000002" title="github">github</a>
+                    
+                </div>
+            </nav>
+        </header>                
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-How-to-run-backtrader-on-MacOS" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2023/03/05/How-to-run-backtrader-on-MacOS/" class="article-date">
+      <time datetime="2023-03-05T09:47:57.000Z" itemprop="datePublished">2023-03-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      How to run backtrader on MacOS
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/backtrader/">backtrader</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>The package backtrader is a Live Trading and backtesting platform written in Python.</p>
+<a id="more"></a>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>The code of a classic Simple Moving Average Crossover strategy is used to verify if backtrader works. The data feed of Yahoo Finance will be replaced with some workable ones, eg. tushare, akshare.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> backtrader <span class="keyword">as</span> bt</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a subclass of SignaStrategy to define the indicators and signals</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SmaCross</span><span class="params">(bt.SignalStrategy)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        sma1 = bt.ind.SMA(period=<span class="number">10</span>)  <span class="comment"># fast moving average</span></span><br><span class="line">        sma2 = bt.ind.SMA(period=<span class="number">30</span>)  <span class="comment"># slow moving average</span></span><br><span class="line">        crossover = bt.ind.CrossOver(sma1, sma2)  <span class="comment"># crossover signal</span></span><br><span class="line">        self.signal_add(bt.SIGNAL_LONG, crossover)  <span class="comment"># use it as LONG signal</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cerebro = bt.Cerebro()  <span class="comment"># create a "Cerebro" engine instance</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a data feed</span></span><br><span class="line">data = bt.feeds.YahooFinanceData(dataname=<span class="string">'MSFT'</span>,</span><br><span class="line">                                 fromdate=datetime(<span class="number">2011</span>, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">                                 todate=datetime(<span class="number">2012</span>, <span class="number">12</span>, <span class="number">31</span>))</span><br><span class="line"></span><br><span class="line">cerebro.adddata(data)  <span class="comment"># Add the data feed</span></span><br><span class="line"></span><br><span class="line">cerebro.addstrategy(SmaCross)  <span class="comment"># Add the trading strategy</span></span><br><span class="line">cerebro.run()  <span class="comment"># run it all</span></span><br><span class="line">cerebro.plot()  <span class="comment"># and plot it with a single command</span></span><br></pre></td></tr></table></figure>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><p>Python 3.10 is installed. Tried Python 3.7 before that, but failed to install some packages like tushare.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python --version</span><br><span class="line">Python 3.10.10</span><br></pre></td></tr></table></figure>
+<h3 id="backtrader"><a href="#backtrader" class="headerlink" title="backtrader"></a>backtrader</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install backtrader[plotting] -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h3 id="data-feed"><a href="#data-feed" class="headerlink" title="data feed"></a>data feed</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install tushare -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com</span><br><span class="line"></span><br><span class="line">pip install akshare -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
+<h2 id="Errors"><a href="#Errors" class="headerlink" title="Errors"></a>Errors</h2><h3 id="Error-1"><a href="#Error-1" class="headerlink" title="Error 1"></a>Error 1</h3><p>SSL issues when fetching data with tushare</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">$ python sma.py </span><br><span class="line">本接口即将停止更新，请尽快使用Pro版接口：https://tushare.pro/document/2</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">/path/to/py310/lib/python3.10/site-packages/tushare/stock/trading.py:706: FutureWarning: The frame.append method is deprecated and will be removed from pandas <span class="keyword">in</span> a future version. Use pandas.concat instead.</span><br><span class="line">  data = data.append(_get_k_data(url, dataflag,</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br><span class="line">&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get <span class="built_in">local</span> issuer certificate (_ssl.c:997)&gt;</span><br></pre></td></tr></table></figure>
+<p>Solution:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line">ssl._create_default_https_context = ssl._create_unverified_context</span><br></pre></td></tr></table></figure>
+<h3 id="Error-2"><a href="#Error-2" class="headerlink" title="Error 2"></a>Error 2</h3><p>The last update of backtrader is about 2 years ago. It’s not compatible with the latest matplotlib. Have to fix some lines in backtrader/plot/locator.py.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Fontconfig warning: &quot;/usr/local/etc/fonts/fonts.conf&quot;, line 86: unknown element &quot;blank&quot;</span><br><span class="line">Fontconfig warning: ignoring UTF-8: not a valid region tag</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/path/to/python/code/sma.py&quot;, line 40, in &lt;module&gt;</span><br><span class="line">    cerebro.plot()</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/backtrader/cerebro.py&quot;, line 974, in plot</span><br><span class="line">    from . import plot</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/backtrader/plot/__init__.py&quot;, line 42, in &lt;module&gt;</span><br><span class="line">    from .plot import Plot, Plot_OldSync</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/backtrader/plot/plot.py&quot;, line 44, in &lt;module&gt;</span><br><span class="line">    from . import locator as loc</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/backtrader/plot/locator.py&quot;, line 35, in &lt;module&gt;</span><br><span class="line">    from matplotlib.dates import (HOURS_PER_DAY, MIN_PER_HOUR, SEC_PER_MIN,</span><br><span class="line">ImportError: cannot import name &apos;warnings&apos; from &apos;matplotlib.dates&apos; (/path/to/python/py310/lib/python3.10/site-packages/matplotlib/dates.py)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Before</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.dates <span class="keyword">import</span> (HOURS_PER_DAY, MIN_PER_HOUR, SEC_PER_MIN,</span><br><span class="line">                              MONTHS_PER_YEAR, DAYS_PER_WEEK,</span><br><span class="line">                              SEC_PER_HOUR, SEC_PER_DAY,</span><br><span class="line">                              num2date, rrulewrapper, YearLocator,</span><br><span class="line">                              MicrosecondLocator, warnings)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># After</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> matplotlib.dates <span class="keyword">import</span> (HOURS_PER_DAY, MIN_PER_HOUR, SEC_PER_MIN,</span><br><span class="line">                              MONTHS_PER_YEAR, DAYS_PER_WEEK,</span><br><span class="line">                              SEC_PER_HOUR, SEC_PER_DAY,</span><br><span class="line">                              num2date, rrulewrapper, YearLocator,</span><br><span class="line">                              MicrosecondLocator)</span><br><span class="line"><span class="keyword">import</span> warnings</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/path/to/python/code/sma.py&quot;, line 40, in &lt;module&gt;</span><br><span class="line">    cerebro.plot()</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/backtrader/cerebro.py&quot;, line 989, in plot</span><br><span class="line">    rfig = plotter.plot(strat, figid=si * 100,</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/backtrader/plot/plot.py&quot;, line 262, in plot</span><br><span class="line">    self.mpyplot.setp(ax.get_xticklabels(), visible=False)</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/matplotlib/axes/_base.py&quot;, line 74, in wrapper</span><br><span class="line">    return get_method(self)(*args, **kwargs)</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/matplotlib/axis.py&quot;, line 1451, in get_ticklabels</span><br><span class="line">    return self.get_majorticklabels()</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/matplotlib/axis.py&quot;, line 1408, in get_majorticklabels</span><br><span class="line">    self._update_ticks()</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/matplotlib/axis.py&quot;, line 1257, in _update_ticks</span><br><span class="line">    major_locs = self.get_majorticklocs()</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/matplotlib/axis.py&quot;, line 1479, in get_majorticklocs</span><br><span class="line">    return self.major.locator()</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/matplotlib/dates.py&quot;, line 1378, in __call__</span><br><span class="line">    locator = self.get_locator(dmin, dmax)</span><br><span class="line">  File &quot;/path/to/python/py310/lib/python3.10/site-packages/backtrader/plot/locator.py&quot;, line 227, in get_locator</span><br><span class="line">    locator.set_view_interval(*self.axis.get_view_interval())</span><br><span class="line">AttributeError: &apos;RRuleLocator&apos; object has no attribute &apos;set_view_interval&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Before</span></span><br><span class="line"></span><br><span class="line">		locator.set_view_interval(*self.axis.get_view_interval())</span><br><span class="line">		locator.set_data_interval(*self.axis.get_data_interval())</span><br><span class="line"></span><br><span class="line"><span class="comment"># After</span></span><br><span class="line"></span><br><span class="line">		<span class="comment"># locator.set_view_interval(*self.axis.get_view_interval())</span></span><br><span class="line">		<span class="comment"># locator.set_data_interval(*self.axis.get_data_interval())</span></span><br></pre></td></tr></table></figure>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p>To verify if backtrader works, run the strategy against daily prices of 300750. It will buy 100 stakes if SMA10 crosses up SMA30, then close if crossing down. This strategy may not work  well when declining or vibrating.</p>
+<p><img src="/images/sma_10_30_300750.png" alt="info"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> backtrader <span class="keyword">as</span> bt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> tushare <span class="keyword">as</span> ts</span><br><span class="line"><span class="keyword">import</span> os.path</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line">ssl._create_default_https_context = ssl._create_unverified_context</span><br><span class="line"></span><br><span class="line">stock=<span class="string">'300750'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_data</span><span class="params">(code,start=<span class="string">'2019-01-01'</span>,end=<span class="string">'2023-03-31'</span>)</span>:</span></span><br><span class="line">    df=ts.get_k_data(code,autype=<span class="string">'qfq'</span>,start=start,end=end)</span><br><span class="line">    print(df)</span><br><span class="line">    df.index=pd.to_datetime(df.date)</span><br><span class="line">    df[<span class="string">'openinterest'</span>]=<span class="number">0</span></span><br><span class="line">    df=df[[<span class="string">'open'</span>,<span class="string">'high'</span>,<span class="string">'low'</span>,<span class="string">'close'</span>,<span class="string">'volume'</span>,<span class="string">'openinterest'</span>]]</span><br><span class="line">    <span class="keyword">return</span> df</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SmaCross</span><span class="params">(bt.SignalStrategy)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        sma1, sma2 = bt.ind.SMA(period=<span class="number">10</span>), bt.ind.SMA(period=<span class="number">30</span>)</span><br><span class="line">        crossover = bt.ind.CrossOver(sma1, sma2)</span><br><span class="line">        self.signal_add(bt.SIGNAL_LONG, crossover)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">notify_order</span><span class="params">(self, order)</span>:</span></span><br><span class="line">    	<span class="keyword">if</span> <span class="keyword">not</span> order.alive():</span><br><span class="line">    		print(<span class="string">','</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span></span><br><span class="line">                           (self.data.num2date(order.executed.dt).date(),</span><br><span class="line">                            order.executed.size * <span class="number">1</span> <span class="keyword">if</span> order.isbuy() <span class="keyword">else</span> <span class="number">-1</span>,</span><br><span class="line">                            order.executed.price)))</span><br><span class="line">    <span class="comment">#def notify_trade(self, trade):</span></span><br><span class="line">    <span class="comment">#	print(trade)</span></span><br><span class="line"></span><br><span class="line">cerebro = bt.Cerebro()</span><br><span class="line">cerebro.addstrategy(SmaCross)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data_file = <span class="string">'prices/'</span> + stock + <span class="string">'.csv'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (os.path.exists(data_file)):</span><br><span class="line">	dataframe = pd.read_csv(data_file, index_col=<span class="string">"date"</span>, parse_dates=<span class="literal">True</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">	dataframe=get_data(stock)</span><br><span class="line">	dataframe.to_csv(data_file)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">start=datetime(<span class="number">2022</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line">end=datetime(<span class="number">2023</span>, <span class="number">3</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">data0 = bt.feeds.PandasData(dataname=dataframe,fromdate=start,todate=end)	</span><br><span class="line"></span><br><span class="line"><span class="comment">#data0 = bt.feeds.YahooFinanceData(dataname='MSFT', fromdate=datetime(2011, 1, 1),</span></span><br><span class="line"><span class="comment">#                                  todate=datetime(2012, 12, 31))</span></span><br><span class="line">cerebro.adddata(data0)</span><br><span class="line"></span><br><span class="line">cerebro.broker.setcash(<span class="number">100000.0</span>)</span><br><span class="line">cerebro.broker.setcommission(commission=<span class="number">0.0003</span>)</span><br><span class="line">cerebro.addsizer(bt.sizers.FixedSize, stake=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cerebro.run()</span><br><span class="line">cerebro.plot()</span><br></pre></td></tr></table></figure>
+      
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2023/03/05/How-to-run-backtrader-on-MacOS/">How to run backtrader on MacOS</a></p>
+        <p><span>文章作者:</span><a href="/" title="访问 独木 的个人博客">独木</a></p>
+        <p><span>发布时间:</span>2023年03月05日 - 09时47分</p>
+        <p><span>最后更新:</span>2023年03月06日 - 07时15分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2023/03/05/How-to-run-backtrader-on-MacOS/" title="How to run backtrader on MacOS">http://fox000002.github.io/2023/03/05/How-to-run-backtrader-on-MacOS/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://fox000002.github.io/2023/03/05/How-to-run-backtrader-on-MacOS/　　作者: 独木" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script src="/js/clipboard.min.js"></script>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+  
+    <a href="/2022/10/10/How-to-Run-an-Eto-Application-on-MacOS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">How to Run an Eto Application on MacOS</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">1.</span> <span class="toc-text">Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installation"><span class="toc-number">2.</span> <span class="toc-text">Installation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python"><span class="toc-number">2.1.</span> <span class="toc-text">python</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#backtrader"><span class="toc-number">2.2.</span> <span class="toc-text">backtrader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-feed"><span class="toc-number">2.3.</span> <span class="toc-text">data feed</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Errors"><span class="toc-number">3.</span> <span class="toc-text">Errors</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-1"><span class="toc-number">3.1.</span> <span class="toc-text">Error 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-2"><span class="toc-number">3.2.</span> <span class="toc-text">Error 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Result"><span class="toc-number">4.</span> <span class="toc-text">Result</span></a></li></ol>
+</div>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+    }
+</script>
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a href="/2022/10/10/How-to-Run-an-Eto-Application-on-MacOS/" title="下一篇: How to Run an Eto Application on MacOS">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2023/03/05/How-to-run-backtrader-on-MacOS/">How to run backtrader on MacOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/10/10/How-to-Run-an-Eto-Application-on-MacOS/">How to Run an Eto Application on MacOS</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/04/24/Create-a-Dockerfile-with-Python-3-7-PyGit2-and-MongoDB/">Create a Dockerfile with Python 3.7, PyGit2, and MongoDB</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/19/Deploy-a-Web-App-Built-with-Laravel-Node-JS-Redis-on-Android-Termux/">Deploy a Web App Built with Laravel+Node.JS+Redis on Android Termux</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/03/18/Install-Python-Dash-App-on-an-Ubuntu-Server/">Install Python Dash App on an Ubuntu Server</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/01/06/Electron-Quick-Start/">Electron Quick Start</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/19/About-Lambda-Architecture/">About Lambda Architecture</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/console-logging-in-javascript/">Console Logging in JavaScript</a></li></ul>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+    <script>
+        $(".post-list").addClass("toc-article");
+        $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+            }
+        })
+    </script>
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2023 独木
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/luuman/hexo-theme-spfk" target="_blank">spfk</a> by luuman
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >Site Visit: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">Page Visit: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    <script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 24;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
